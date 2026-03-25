@@ -107,12 +107,33 @@ function App() {
             </Box>
           ) : (
             <VStack spacing={8} align="stretch">
-              <Box>
-                <Text fontSize="xs" fontWeight="700" color="#888" letterSpacing="0.15em" mb={3}>
-                  TITLE
-                </Text>
-                
-                <Select
+            <Box>
+              <Text fontSize="xs" fontWeight="700" color="#888" letterSpacing="0.15em" mb={3}>
+              TITLE
+            </Text>
+            <Input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="何についてのご意見ですか？"
+              border="none"
+              borderBottom="2px solid"
+              borderColor="#1a1a1a"
+              borderRadius="none"
+              px={0}
+              fontSize="lg"
+              fontWeight="600"
+              color="#1a1a1a"
+              _placeholder={{ color: "#ccc" }}
+              _focus={{ boxShadow: "none", borderColor: "#555" }}
+            />
+            </Box>
+            <Divider borderColor="#e8e8e8" />
+
+            <Box>
+              <Text fontSize="xs" fontWeight="700" color="#888" letterSpacing="0.15em" mb={3}>
+                ジャンル（大まかな分野）
+              </Text>
+              <Select
                   value={genre}
                   onChange={(e) => setGenre(e.target.value)}
                   border="none"
