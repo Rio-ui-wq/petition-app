@@ -1,10 +1,6 @@
 import { useState } from "react";
 import {
   Box, Container, Heading, Text, Input, Textarea,
-  Button, VStack, Divider, useToast
-} from "@chakra-ui/react";
-import {
-  Box, Container, Heading, Text, Input, Textarea,
   Button, VStack, Divider, useToast, Select
 } from "@chakra-ui/react";
 
