@@ -1,16 +1,22 @@
-# React + Vite
+# CITY VOICE - 市民嘆願フォーム
+市民の声をAIが要約・自動仕分けして担当部署へ届けるWebアプリです。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## デモ
+https://petition-app-six.vercel.app
 
-Currently, two official plugins are available:
+## 機能
+- 市民がフォームから意見を送信
+- ジャンル選択（道路・子育て・防災など）で入力をサポート
+- Gemini AIが内容を分析・要約し、適切な担当部署へ自動振り分け
+- スパム・誹謗中傷を自動検出し別アドレスへ振り分け
+- 担当部署のメールアドレスへ自動送信（本番運用時は各部署の実際のメアドを設定）
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 技術スタック
+- フロント: React / Vite / Chakra UI
+- バックエンド: Node.js / Express
+- AI: Google Gemini API（gemini-2.5-flash-lite）
+- メール: Resend
+- デプロイ: Vercel（フロント）/ Render（バックエンド）
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## バックエンドリポジトリ
+https://github.com/Rio-ui-wq/petition-backend
