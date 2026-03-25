@@ -3,6 +3,10 @@ import {
   Box, Container, Heading, Text, Input, Textarea,
   Button, VStack, Divider, useToast
 } from "@chakra-ui/react";
+import {
+  Box, Container, Heading, Text, Input, Textarea,
+  Button, VStack, Divider, useToast, Select
+} from "@chakra-ui/react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -12,6 +16,7 @@ function App() {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [content, setContent] = useState("");
+  const [genre, setGenre] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const toast = useToast();
@@ -31,7 +36,7 @@ function App() {
       const res = await fetch(`${API_URL}/petition`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, city, content, email, name })
+        body: JSON.stringify({ title, city, content, email, name, genre })
       });
       const data = await res.json();
       setResult(data);
@@ -110,21 +115,29 @@ function App() {
                 <Text fontSize="xs" fontWeight="700" color="#888" letterSpacing="0.15em" mb={3}>
                   TITLE
                 </Text>
-                <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="何についてのご意見ですか？"
+                
+                <Select
+                  value={genre}
+                  onChange={(e) => setGenre(e.target.value)}
                   border="none"
                   borderBottom="2px solid"
                   borderColor="#1a1a1a"
                   borderRadius="none"
                   px={0}
-                  fontSize="lg"
+                  fontSize="md"
                   fontWeight="600"
                   color="#1a1a1a"
-                  _placeholder={{ color: "#ccc" }}
-                  _focus={{ boxShadow: "none", borderColor: "#555" }}
-                />
+                  _focus={{ boxShadow: "none" }}
+                >
+                  <option value="">選択してください</option>
+                  <option value="道路・交通">道路・交通</option>
+                  <option value="公園・環境">公園・環境</option>
+                  <option value="子育て・教育">子育て・教育</option>
+                  <option value="福祉・医療">福祉・医療</option>
+                  <option value="防災・安全">防災・安全</option>
+                  <option value="まちづくり">まちづくり</option>
+                  <option value="その他">その他</option>
+                </Select>
               </Box>
               <Divider borderColor="#e8e8e8" />
 
